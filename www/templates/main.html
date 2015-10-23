@@ -1,12 +1,13 @@
 <!DOCTYPE HTML>
 <ion-view view-title="Main">
-  <ion-header-bar class="bar bar-header bar-dark">
-  </ion-header-bar>
+  <ion-nav-buttons side="right">
+    <button class="button button-light" ng-click="restart()">
+      Generate
+    </button>
+  </ion-nav-buttons>
 
-  <ion-content overflow-scroll="true">
-    <ion-refresher
-      pulling-text="Pull to restart..."
-      on-refresh="restart()">
+  <ion-content>
+    <ion-refresher pulling-text="Pull to restart..." on-refresh="restart()">
     </ion-refresher>
 
     <div class="list">
@@ -23,12 +24,8 @@
       </label>
 
       <div class="item item-divider">Numbers</div>
-      <div class="item item-icon-left item-icon-right"
-        ng-disabled="countSelected() >= players"
-        ng-repeat="number in numbers"
-        ng-click="reveal(number)"
-        ng-class="{positive: number.selected, loser: number.loser, others: number.others}">
-        
+      <div class="item item-icon-left item-icon-right" ng-disabled="countSelected() >= players" ng-repeat="number in numbers" ng-click="reveal(number)" ng-class="{positive: number.selected, loser: number.loser, others: number.others}">
+
         <i class="icon" ng-class="number.icon"></i>
         <span ng-if="number.revealed"><b>{{ number.display }}</b></span>
         <span ng-if="!number.revealed">---</span>
