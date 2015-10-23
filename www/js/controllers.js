@@ -6,14 +6,17 @@ angular.module('starter.controllers', [])
     revealOne: false
   };
 
+  $scope.generating = false;
   $scope.generate = function() {
     $scope.numbers = [];
+    $scope.generating = true;
     return NumberGenerator.generate($scope.players + 1, $scope.newGame.revealOne)
       .then(function(numbers) {
         $scope.numbers = numbers;
       })
       .finally(function() {
         $scope.$broadcast('scroll.refreshComplete');
+        $scope.generating = false;
       });
   };
 
