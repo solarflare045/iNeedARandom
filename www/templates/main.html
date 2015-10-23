@@ -24,7 +24,7 @@
       </label>
 
       <div class="item item-divider">Numbers</div>
-      <div class="item item-icon-left item-icon-right" ng-disabled="countSelected() >= players" ng-repeat="number in numbers" ng-click="reveal(number)" ng-class="{positive: number.selected, loser: number.loser, others: number.others}">
+      <div class="item item-icon-left item-icon-right" ng-disabled="countSelected() >= players" ng-repeat="number in numbers" ng-click="reveal(number)" ng-class="{positive: number.selected, loser: number.loser, others: number.others, winner: number.winner}">
 
         <i class="icon" ng-class="number.icon"></i>
         <span ng-if="number.revealed"><b>{{ number.display }}</b></span>

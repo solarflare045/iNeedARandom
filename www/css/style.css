@@ -7,9 +7,16 @@
   color: #fff;
 }
 
-.others {
+.winner {
   border-color: #28a54c;
   background-color: #33cd5f;
   background-image: linear-gradient(0deg, #28a54c, #28a54c 50%, transparent 50%);
+  color: #fff;
+}
+
+.others {
+  border-color: #e6b400;
+  background-color: #ffc900;
+  background-image: linear-gradient(0deg, #e6b400, #e6b400 50%, transparent 50%);
   color: #fff;
 }

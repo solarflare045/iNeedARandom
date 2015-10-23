@@ -55,9 +55,9 @@ angular.module('starter.controllers', [])
           return;
         }
 
-        //num.selected = false;
         num.loser = num.value == _.first(selected).value;
-        num.others = !num.loser;
+        num.winner = num.value == _.last(selected).value;
+        num.others = !(num.loser || num.winner);
       });
     }
   };
