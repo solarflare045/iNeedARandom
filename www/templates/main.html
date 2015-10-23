@@ -1,0 +1,38 @@
+<!DOCTYPE HTML>
+<ion-view view-title="Main">
+  <ion-header-bar class="bar bar-header bar-dark">
+  </ion-header-bar>
+
+  <ion-content overflow-scroll="true">
+    <ion-refresher
+      pulling-text="Pull to restart..."
+      on-refresh="restart()">
+    </ion-refresher>
+
+    <div class="list">
+      <div class="item item-divider">Setup</div>
+      <label class="item item-input">
+        <span class="input-label">Players</span>
+        <input type="number" ng-model="newGame.players">
+      </label>
+      <label class="item item-checkbox">
+        <label class="checkbox">
+          <input type="checkbox" ng-model="newGame.revealOne">
+        </label>
+        Reveal One
+      </label>
+
+      <div class="item item-divider">Numbers</div>
+      <div class="item item-icon-left item-icon-right"
+        ng-disabled="countSelected() >= players"
+        ng-repeat="number in numbers"
+        ng-click="reveal(number)"
+        ng-class="{positive: number.selected, loser: number.loser, others: number.others}">
+        
+        <i class="icon" ng-class="number.icon"></i>
+        <span ng-if="number.revealed"><b>{{ number.display }}</b></span>
+        <span ng-if="!number.revealed">---</span>
+      </div>
+    </div>
+  </ion-content>
+</ion-view>
